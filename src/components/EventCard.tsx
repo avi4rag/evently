@@ -1,21 +1,22 @@
 import { useNavigate } from "react-router-dom";
 
 interface EventCardProps {
+  id: number;
   image: string;
   title: string;
   date: string;
   time: string;
 }
 
-const EventCard = ({ image, title, date, time }: EventCardProps) => {
+const EventCard = ({ id, image, title, date, time }: EventCardProps) => {
   const navigate = useNavigate();
 
   const handleBook = () => {
-    navigate("/bookings");
+    navigate(`/event/${id}`);
   };
 
   return (
-    <div className="bg-card rounded-2xl p-4 shadow-sm">
+    <div className="bg-card rounded-2xl p-4 shadow-sm min-w-[280px] flex-shrink-0">
       <div className="mb-4">
         <img
           src={image}
